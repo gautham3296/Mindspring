@@ -2,7 +2,7 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="mt-20 py-12 border-t-4 border-orange-100 relative overflow-hidden bg-white">
+    <footer id="contact" className="mt-12 py-8 border-t-4 border-orange-100 relative overflow-hidden bg-white">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 rainbow-bg opacity-50"></div>
       <div className="container mx-auto px-6 text-center">
         <div className="flex flex-col items-center gap-6">
@@ -10,10 +10,11 @@ export default function Footer() {
             <img 
               alt="MindSpring Logo" 
               className="object-contain h-12" 
-              src="https://lh3.googleusercontent.com/aida/ADBb0uhwyggCKOlszy1eC8GNLM6yXimni2cJU_iO7Tljz_S4RQYVFHQblIGFsbjDQdiYbZp_hXnrIpg36aXbKeIcqc6D-gUel_ms-_RyrqudWkVMRv7FzkEGIpVFsBjSbxX-3ZD1drHdxMRBT7KKvbHNgoMtENcrjn8Gp5yLXkM4J_zSWRP43fF4DOpLBIjQUQtFezCtI7SYIwJUSAKFOviAyc_7rvDkDWiVpHRfz2XSFIP_TeeMG7xD46yKTv4m54o6PQPTxCi6fdSBew" 
+              src="https://i.ibb.co/dJWLYMgR/Screenshot-2026-04-14-123524-removebg-preview.png" 
+              referrerPolicy="no-referrer"
             />
             <span className="text-xl font-black bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 bg-clip-text text-transparent">
-              MindSpring
+              The Mindspring
             </span>
           </div>
           
@@ -24,10 +25,15 @@ export default function Footer() {
                 <Mail size={18} className="text-blue-500" />
                 themindspring.sec@gmail.com
               </a>
-              <a href="https://wa.me/917305142720" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-green-500 transition-colors">
-                <Phone size={18} className="text-green-500" />
-                7305142720
-              </a>
+              <div className="flex flex-col items-center md:items-start gap-1">
+                <a href="https://wa.me/917305142720" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-green-500 transition-colors">
+                  <Phone size={18} className="text-green-500" />
+                  +91 73051 42720
+                </a>
+                <a href="tel:+917305387664" className="flex items-center gap-2 hover:text-green-500 transition-colors pl-6">
+                  +91 73053 87664
+                </a>
+              </div>
             </div>
             <div className="flex items-center justify-center gap-2 text-slate-500 text-sm max-w-md mx-auto">
               <MapPin size={18} className="text-orange-400 flex-shrink-0" />

@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import MobileNav from './components/MobileNav';
 import Home from './pages/Home';
 import ChildCare from './pages/ChildCare';
-import Counselling from './pages/Counselling';
+import Counseling from './pages/Counseling';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -28,11 +28,11 @@ export default function App() {
 
         <Navbar />
         
-        <main className="flex-grow max-w-screen-xl mx-auto px-4 md:px-8 pt-8 pb-32 md:pb-12 w-full">
+        <main className="flex-grow pb-32 md:pb-12 w-full">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/child-care" element={<ChildCare />} />
-            <Route path="/counselling" element={<Counselling />} />
+            <Route path="/counseling" element={<Counseling />} />
           </Routes>
         </main>
 
