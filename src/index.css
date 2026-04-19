@@ -29,12 +29,28 @@
 
 @layer base {
   body {
-    @apply font-sans text-[#191c1e] bg-background;
+    @apply font-sans text-[#191c1e];
+    background: linear-gradient(135deg, #fff5f5 0%, #fff9f0 25%, #f0fff4 50%, #f0faff 75%, #f9f0ff 100%);
+    background-attachment: fixed;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("https://i.ibb.co/dJWLYMgR/Screenshot-2026-04-14-123524-removebg-preview.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60% auto;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: -1;
   }
 }
 
 .rainbow-bg {
-  background: linear-gradient(135deg, #fff5f5 0%, #fff9f0 25%, #f0fff4 50%, #f0faff 75%, #f9f0ff 100%);
+  @apply bg-transparent;
 }
 
 .rainbow-cta-bg {

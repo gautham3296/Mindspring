@@ -10,40 +10,58 @@ export default function Navbar() {
   const isActive = (path: string) => location.pathname === path;
 
   const navLinks = [
-    { name: 'About Us', href: '/#about' },
-    { name: 'Services', href: '/#services' },
-    { name: 'Our Approach', href: '/#approach' },
-    { name: 'Why MindSpring', href: '/#why-mindspring' },
-    { name: 'Vision', href: '/#vision' },
-    { name: 'Mission', href: '/#mission' },
-    { name: 'About Founder', href: '/#founder' },
-    { name: 'Book Now', href: '/#book-now' },
-    { name: 'Contact Us', href: '/#contact' },
-    { name: 'Child Care', href: '/child-care' },
-    { name: 'Counseling', href: '/counseling' },
+    { name: 'About Us', href: '/#about', desktop: true },
+    { name: 'Child Care', href: '/child-care', desktop: true },
+    { name: 'Services', href: '/#services', desktop: true },
+    { name: 'Counseling', href: '/counseling', desktop: true },
+    { name: 'Gallery', href: '/gallery', desktop: true },
+    { name: 'Book Now', href: '/#book-now', desktop: true },
   ];
 
   return (
-    <header className="w-full top-0 sticky z-50 bg-surface/95 backdrop-blur-md border-b border-white/20 shadow-sm">
-      <nav className="max-w-screen-xl mx-auto flex items-center justify-between px-6 h-16 md:h-20 overflow-visible">
-        <Link to="/" className="flex items-center gap-3 shrink-0 py-0">
+    <header className="w-full top-0 sticky z-50 bg-white/95 backdrop-blur-md border-b-4 border-orange-100 shadow-lg">
+      <nav className="max-w-screen-xl mx-auto px-4 relative flex flex-col items-center py-4 md:py-8 gap-4 md:gap-6">
+        {/* Centered Brand */}
+        <Link to="/" className="flex flex-col md:flex-row items-center gap-3 md:gap-5 group relative z-10">
           <img 
-            alt="MindSpring Logo" 
-            className="h-12 w-12 md:h-16 md:w-16 object-contain block" 
+            alt="The MindSpring - Child Development and Counseling Centre Logo" 
+            className="h-16 md:h-24 object-contain transition-transform duration-500 group-hover:scale-110" 
             src="https://i.ibb.co/dJWLYMgR/Screenshot-2026-04-14-123524-removebg-preview.png" 
             referrerPolicy="no-referrer"
           />
-          <span className="text-xl md:text-2xl font-black text-primary tracking-tight leading-normal py-0">
+          <span className="text-2xl md:text-5xl font-black bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 bg-clip-text text-transparent tracking-tighter transition-all duration-500 group-hover:tracking-normal py-2 leading-tight">
             The Mindspring
           </span>
         </Link>
 
-        {/* Desktop Nav - Removed as per request to use hamburger for all */}
+        {/* Desktop Navigation Below Brand */}
+        <div className="hidden md:flex items-center gap-8 lg:gap-12 relative z-10">
+          {navLinks.filter(l => l.desktop).map((link) => (
+            link.href.startsWith('/#') ? (
+              <a 
+                key={link.name}
+                href={link.href}
+                className="text-xs lg:text-sm font-black uppercase tracking-[0.2em] text-slate-600 hover:text-primary transition-all duration-300 hover:scale-110"
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link 
+                key={link.name}
+                to={link.href}
+                className={`text-xs lg:text-sm font-black uppercase tracking-[0.2em] transition-all duration-300 hover:scale-110 ${isActive(link.href) ? 'text-primary' : 'text-slate-600 hover:text-primary'}`}
+              >
+                {link.name}
+              </Link>
+            )
+          ))}
+        </div>
         
-        {/* Hamburger Toggle - Always visible now */}
+        {/* Mobile Toggle Button - Absolute Right */}
         <button 
           onClick={() => setIsOpen(!isOpen)}
-          className="p-2 text-primary hover:bg-primary/10 rounded-xl transition-colors"
+          className="md:hidden absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-primary/5 text-primary rounded-2xl border border-primary/10 shadow-sm transition-all active:scale-95"
+          aria-label="Toggle menu"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>

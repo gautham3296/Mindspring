@@ -1,50 +1,42 @@
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Heart, Users, Sparkles, MessageCircle, Calendar, Smile, ArrowRight, BrainCircuit } from 'lucide-react';
+import { Puzzle, Users, Sparkles, MessageCircle, Calendar, Smile, ArrowRight, BrainCircuit } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
 
 export default function Counseling() {
+  useEffect(() => {
+    document.title = "Child & Family Counseling | The MindSpring Chennai";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Expert Child Counseling, Adolescent Therapy, and Family Bonding in Guduvanchery & Potheri. Compassionate support for big feelings and emotional growth.");
+    }
+  }, []);
+
   return (
-    <div className="max-w-screen-xl mx-auto px-4 md:px-8 pt-8">
+    <div className="max-w-screen-xl mx-auto px-4 md:px-8 pt-8 relative">
       <div className="space-y-12 md:space-y-16 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative px-4 md:px-6 py-12 md:py-20 overflow-hidden rounded-[2rem] md:rounded-3xl">
+      <section className="relative px-4 md:px-6 py-12 md:py-20 overflow-hidden rounded-[2rem] md:rounded-3xl bg-white/40 backdrop-blur-sm border border-white/20 shadow-sm">
         <div className="absolute inset-0 rainbow-bg opacity-10"></div>
         <div className="absolute -top-20 -left-20 w-64 h-64 bg-tertiary/20 organic-blob animate-pulse"></div>
         <div className="absolute top-40 -right-20 w-80 h-80 bg-secondary/20 organic-blob animate-bounce [animation-duration:5000ms]"></div>
         
-        <div className="max-w-screen-xl mx-auto relative z-10 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div className="space-y-6 md:space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 bg-primary/10 text-primary rounded-full font-bold text-xs md:text-sm uppercase tracking-wider">
-              <Heart size={16} fill="currentColor" />
+        <div className="max-w-screen-xl mx-auto relative z-10 text-center flex flex-col items-center">
+          <div className="space-y-6 md:space-y-8 max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 bg-primary/10 text-primary rounded-full font-bold text-xs md:text-sm uppercase tracking-wider mx-auto">
+              <Puzzle size={16} fill="currentColor" />
               Joyful Wellness
             </div>
             <h1 className="text-3xl md:text-6xl font-black text-slate-900 leading-tight tracking-tight">
               Nurturing Growth, <br /><span className="text-primary bg-gradient-to-r from-primary via-orange-400 to-tertiary bg-clip-text text-transparent">Supporting Hearts.</span>
             </h1>
-            <p className="text-base md:text-lg text-slate-600 max-w-lg leading-relaxed font-medium">
-              At The MindSpring, we celebrate the unique brilliance of every child. Providing professional <strong>counseling in Guduvanchery</strong>, our services help families in <strong>Potheri and Maraimalai Nagar</strong> blossom through playful, supportive care.
+            <p className="text-base md:text-lg text-slate-600 max-w-2xl leading-relaxed font-medium mx-auto">
+              At The MindSpring, we celebrate the unique brilliance of every child. Providing professional <strong>counseling in Guduvanchery</strong>, our services help families in <strong>Potheri</strong> blossom through playful, supportive care.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 justify-center">
               <WhatsAppButton 
                 phoneNumber="7305142720"
                 className="px-6 md:px-8 py-3 md:py-4 bg-primary text-white rounded-full font-extrabold shadow-lg shadow-primary/20 hover:scale-105 transition-all duration-300 flex items-center gap-2 text-sm md:text-base"
-              />
-            </div>
-          </div>
-          <div className="relative hidden md:block">
-            <motion.div 
-              animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-6 -right-6 w-20 h-20 bg-tertiary rounded-full flex items-center justify-center shadow-xl"
-            >
-              <Sparkles className="text-white w-10 h-10" />
-            </motion.div>
-            <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white rotate-3">
-              <img 
-                alt="Counseling session" 
-                className="w-full h-auto" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVJYljDKWfMzP-LdsWijjlmOwPPqPlU7bM7GdsPHmqAebJtclJCZ3j0y9DTYE2BHaRcVjrL-99geCpuudnAG1jtKKNjUGkrbzmAqv6SeUtwfl6Aw8Fuc6xffNjWs7dsXM16ECGbFFZJW0PHpbfu1T8hGCB-KFeMArZwPZKQhzcE_z_iaa5PTEMnsMPLpzK2nJWfNP13xBn61oGf8TWQDK8yeGTLF9kY3oOKr0Fmqr31PrMsLiEi9Ur7P_Oi_R9vdhU6_dqDClOJOg"
-                referrerPolicy="no-referrer"
               />
             </div>
           </div>
@@ -64,13 +56,21 @@ export default function Counseling() {
                 <Smile size={28} className="text-blue-500" />
               </div>
               <h2 className="text-2xl md:text-3xl font-black text-blue-900 mb-4">Child Counseling</h2>
-              <p className="text-blue-900/70 max-w-md leading-relaxed font-medium text-sm md:text-base">
-                Play-based therapy where magic meets healing. We offer specialized <strong>therapeutic support in Chennai</strong>, serving <strong>Chromepet and Kovilancheri</strong>, using games and art to help little ones express big feelings.
+              <p className="text-blue-900/70 max-w-md leading-relaxed font-bold text-sm md:text-base">
+                Play-based therapy where magic meets healing. We offer specialized <strong>therapeutic support in Chennai</strong>, serving <strong>Chromepet</strong>, using games and art to help little ones express big feelings.
               </p>
             </div>
-            <div className="mt-8 flex gap-3 md:gap-4 relative z-10">
+            <div className="mt-8 flex gap-3 md:gap-4 relative z-10 pr-32">
               <span className="px-4 md:px-5 py-2 bg-blue-500 text-white rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider">Ages 3-10</span>
               <span className="px-4 md:px-5 py-2 bg-white text-blue-500 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider shadow-sm">Creative Play</span>
+            </div>
+            <div className="absolute -bottom-4 -right-4 w-40 h-40 md:w-64 md:h-64 transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-3 translate-x-4 translate-y-4">
+              <img 
+                src="https://i.ibb.co/mV4JDFJh/Child-Counseling.png" 
+                alt="Illustration of a therapeutic play session for child counseling" 
+                className="w-full h-full object-contain"
+                referrerPolicy="no-referrer"
+              />
             </div>
           </motion.div>
 
@@ -85,7 +85,7 @@ export default function Counseling() {
               </div>
               <h2 className="text-xl md:text-2xl font-black text-primary mb-4">Family Bonding</h2>
               <p className="text-primary/70 text-xs md:text-sm leading-relaxed font-medium">
-                Strengthening heart-to-heart connections. We provide expert <strong>family guidance in Ottiyambakkam and Sithalapakkam</strong> to help you build bridges of understanding and joy.
+                Strengthening heart-to-heart connections. We provide expert <strong>family guidance in Ottiyambakkam</strong> to help you build bridges of understanding and joy.
               </p>
             </div>
             <WhatsAppButton 
@@ -106,13 +106,21 @@ export default function Counseling() {
                 <BrainCircuit size={28} className="text-indigo-500" />
               </div>
               <h2 className="text-xl md:text-2xl font-black text-indigo-900 mb-4">Adolescent Counseling</h2>
-              <p className="text-indigo-900/70 text-xs md:text-sm leading-relaxed font-medium">
-                A safe, non-judgmental space for teens to navigate identity, peer pressure, and emotional challenges with confidence in <strong>Madambakkam and Nedungundram</strong>.
+              <p className="text-indigo-900/70 text-xs md:text-sm leading-relaxed font-bold pr-24">
+                A safe, non-judgmental space for teens to navigate identity, peer pressure, and emotional challenges with confidence in <strong>Madambakkam</strong>.
               </p>
             </div>
-            <div className="mt-6 flex -space-x-3">
+            <div className="mt-6 flex -space-x-3 relative z-10 pr-24">
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-white overflow-hidden shadow-md bg-indigo-200 flex items-center justify-center text-white font-bold">Y</div>
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-white overflow-hidden shadow-md bg-indigo-300 flex items-center justify-center text-white font-bold">G</div>
+            </div>
+            <div className="absolute -bottom-1 -right-1 w-28 h-28 opacity-60 group-hover:opacity-100 transition-all duration-700 translate-x-2 translate-y-2">
+              <img 
+                src="https://i.ibb.co/TDCZ47W0/Stress-Anxiety.png" 
+                alt="Illustration of adolescent counseling and support" 
+                className="w-full h-full object-contain" 
+                referrerPolicy="no-referrer" 
+              />
             </div>
           </motion.div>
 
@@ -127,14 +135,14 @@ export default function Counseling() {
               </div>
               <h2 className="text-2xl md:text-3xl font-black text-yellow-900 mb-4">Marital & Family</h2>
               <p className="text-yellow-900/70 leading-relaxed font-medium text-sm md:text-base">
-                Supporting couples and families in building healthy communication, resolving conflicts, and strengthening emotional bonds for families in <strong>Velachery, Pallikaranai, and Thalambur</strong>.
+                Supporting couples and families in building healthy communication, resolving conflicts, and strengthening emotional bonds for families in <strong>Velachery</strong>.
               </p>
             </div>
             <div className="w-full md:w-48 aspect-square rounded-[2rem] md:rounded-3xl overflow-hidden flex-shrink-0 shadow-xl border-4 border-white rotate-2 group-hover:rotate-0 transition-all">
               <img 
-                alt="Family Counseling" 
+                alt="Family counseling and bonding session" 
                 className="w-full h-full object-cover" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhgJgabbmrMCCdkLLDj0wQi8mtPejIhnbX_iP2tZq-FT0Gp8-hOqfjcogPbJk4hDvfjGoO0Tv1uazwZHQ8MByB-zVuem2iZeSzCGuU3c7rnxcej_QinAZ5ed7eaHnONzGf64HoxMm4J_4EM36EQcPoyuO4ojMRuha3mVPESBj9i7gIItAhW-TlzdS058INXuEYqT3WGP1iIbPHpRSZEoGfsDaPzS9bhqByfFMpOBAqxZtawCS4_SnzsyemFwij80Xx1ga9OE8mWwE"
+                src="https://i.ibb.co/Vrkjz72/Marital-Counseling.png"
                 referrerPolicy="no-referrer"
               />
             </div>
