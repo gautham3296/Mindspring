@@ -1,19 +1,26 @@
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Image as ImageIcon, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const galleryImages = [
-
-  "https://i.ibb.co/C5d59HPM/Whats-App-Image-2026-04-16-at-11-33-22-AM.jpg",
-"https://i.ibb.co/d0DqBFG7/Whats-App-Image-2026-04-16-at-11-31-56-AM.jpg",
-"https://i.ibb.co/d41nGtp0/Whats-App-Image-2026-04-16-at-11-31-45-AM.jpg",
-"https://i.ibb.co/ktFbTxR/Whats-App-Image-2026-04-16-at-11-31-35-AM.jpg",
-"https://i.ibb.co/zhn5wzft/Whats-App-Image-2026-04-16-at-11-25-09-AM.jpg",
-"https://i.ibb.co/j9SJ6HR4/Whats-App-Image-2026-04-16-at-11-24-48-AM.jpg",
-
+  "https://i.ibb.co/mrqksVYY/Whats-App-Image-2026-05-11-at-2-02-06-PM-1.jpg",
+  "https://i.ibb.co/W17fx1R/Whats-App-Image-2026-05-11-at-2-02-06-PM-2.jpg",
+  "https://i.ibb.co/dJKBhnh7/Whats-App-Image-2026-05-11-at-2-02-06-PM.jpg",
+  "https://i.ibb.co/TxDrbmgg/Whats-App-Image-2026-05-11-at-2-02-07-PM.jpg",
+  "https://i.ibb.co/Ftp6qKQ/Whats-App-Image-2026-05-11-at-2-01-47-PM.jpg",
+  "https://i.ibb.co/GvHbFwPg/Whats-App-Image-2026-05-11-at-1-56-17-PM.jpg"
 ];
 
 export default function Gallery() {
+  useEffect(() => {
+    document.title = "Our Gallery | The MindSpring Child Development Centre";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Explore our facility and see our therapeutic activities in action at The MindSpring Child Development Centre Chennai.");
+    }
+  }, []);
+
   return (
     <div className="max-w-screen-xl mx-auto px-4 md:px-8 pt-8 relative">
       <div className="flex items-center justify-between mb-8">

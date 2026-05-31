@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Instagram, Map } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Map, Youtube } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -47,6 +47,10 @@ export default function Footer() {
               <a href="https://www.instagram.com/themindspring.sec" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-pink-500 transition-colors">
                 <Instagram size={18} className="text-pink-500" />
                 @themindspring.sec
+              </a>
+              <a href="https://youtube.com/@swetha-themindspring?si=0Np9J9Ow4mrBozFD" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-red-600 transition-colors font-bold">
+                <Youtube size={18} className="text-red-600" />
+                @swetha-themindspring
               </a>
               <a href="https://www.google.com/maps?q=12.8655123,80.1513201&z=17&hl=en" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-red-500 transition-colors">
                 <Map size={18} className="text-red-500" />
